@@ -7,6 +7,7 @@ const Detail = () => {
   const product = data.prendas[0];
 
   const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState(undefined);
 
   const availableSize = (product, size) => {
     const sizes = product.variants.filter((v) => {
@@ -16,9 +17,15 @@ const Detail = () => {
     if (sizes.length > 0) {
       disabled = false;
     } else disabled = true;
-    console.log(disabled);
     return disabled;
   };
+  const filteredBySize = product.variants.filter((variant) => {
+    console.log(selectedSize);
+    if (selectedSize) {
+      return variant.size === selectedSize;
+    } else return variant;
+  });
+  console.log("filtrado:", filteredBySize);
 
   return (
     <div className={s.container}>
@@ -39,13 +46,50 @@ const Detail = () => {
         <h3>${product.variants[0].price}</h3>
         <h4>{product.description}</h4>
         <div className={s.talles}>
-          <button disabled={availableSize(product, "S")}>S</button>
-          <button disabled={availableSize(product, "M")}>M</button>
-          <button disabled={availableSize(product, "L")}>L</button>
-          <button disabled={availableSize(product, "XL")}>XL</button>
-          <button disabled={availableSize(product, "XXl")}>XXL</button>
+          <button
+            onClick={() => setSelectedSize("S")}
+            disabled={availableSize(product, "S")}
+          >
+            S
+          </button>
+          <button
+            onClick={() => setSelectedSize("M")}
+            disabled={availableSize(product, "M")}
+          >
+            M
+          </button>
+          <button
+            onClick={() => setSelectedSize("L")}
+            disabled={availableSize(product, "L")}
+          >
+            L
+          </button>
+          <button
+            onClick={() => setSelectedSize("XL")}
+            disabled={availableSize(product, "XL")}
+          >
+            XL
+          </button>
+          <button
+            onClick={() => setSelectedSize("XXL")}
+            disabled={availableSize(product, "XXL")}
+          >
+            XXL
+          </button>
         </div>
-        <p>
+        <div className={s.colors}>
+          <p>Colores:</p>
+          {filteredBySize &&
+            filteredBySize.map((variant) => {
+              return (
+                <button
+                  style={{ backgroundColor: `${variant.color.color}` }}
+                  className={s.colorBtn}
+                ></button>
+              );
+            })}
+        </div>
+        <p style={{fontWeight:"500"}}>
           Cantidad:{" "}
           <input
             type="number"
@@ -54,7 +98,8 @@ const Detail = () => {
           />
         </p>
         <button className={s.addBtn}>
-          <FaShoppingCart/> AÑADIR AL CARRITO
+          <FaShoppingCart style={{ width: "1.5em", height: "1.5em" }} />
+          <p>AÑADIR AL CARRITO</p>
         </button>
       </div>
     </div>
