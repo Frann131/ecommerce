@@ -1,0 +1,94 @@
+{
+    "prendas": [
+      {
+        "id": 1,
+        "title": "Buzo classic",
+        "category": "Buzos",
+        "subcategory": "Sin capucha",
+        "description": "Buzo clasico sin capucha",
+        "variants": [
+          {
+            "size": "S",
+            "color": "Negro",
+            "price": 20.00,
+            "stock": 50
+          },
+          {
+            "size": "M",
+            "color": "Negro",
+            "price": 20.00,
+            "stock": 40
+          },
+          {
+            "size": "L",
+            "color": "Negro",
+            "price": 20.00,
+            "stock": 30
+          },
+          {
+            "size": "S",
+            "color": "Blanco",
+            "price": 20.00,
+            "stock": 20
+          },
+          {
+            "size": "M",
+            "color": "Blanco",
+            "price": 20.00,
+            "stock": 10
+          },
+          {
+            "size": "L",
+            "color": "Blanco",
+            "price": 20.00,
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Chupin roto",
+        "category": "Pantalones",
+        "subcategory": "Chupines",
+        "variants": [
+          {
+            "size": "S",
+            "color": "Azul",
+            "price": 40.00,
+            "stock": 25
+          },
+          {
+            "size": "M",
+            "color": "Azul",
+            "price": 40.00,
+            "stock": 20
+          },
+          {
+            "size": "L",
+            "color": "Azul",
+            "price": 40.00,
+            "stock": 15
+          },
+          {
+            "size": "S",
+            "color": "Negro",
+            "price": 40.00,
+            "stock": 10
+          },
+          {
+            "size": "M",
+            "color": "Negro",
+            "price": 40.00,
+            "stock": 5
+          },
+          {
+            "size": "L",
+            "color": "Negro",
+            "price": 40.00,
+            "stock": 0
+          }
+        ]
+      }
+    ]
+  }
+  
