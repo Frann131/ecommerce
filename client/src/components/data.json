@@ -61,37 +61,43 @@
           "size": "S",
           "color": "Azul",
           "price": 40.0,
-          "stock": 25
+          "stock": 25,
+          "img": "https://i.pinimg.com/236x/65/80/29/658029963003f81d75bdce339b7c3e00.jpg"
         },
         {
           "size": "M",
           "color": "Azul",
           "price": 40.0,
-          "stock": 20
+          "stock": 20,
+          "img": "https://i.pinimg.com/236x/65/80/29/658029963003f81d75bdce339b7c3e00.jpg"
         },
         {
           "size": "L",
           "color": "Azul",
           "price": 40.0,
-          "stock": 15
+          "stock": 15,
+          "img": "https://i.pinimg.com/236x/65/80/29/658029963003f81d75bdce339b7c3e00.jpg"
         },
         {
           "size": "S",
           "color": "Negro",
           "price": 40.0,
-          "stock": 10
+          "stock": 10,
+          "img": "https://i.pinimg.com/236x/65/80/29/658029963003f81d75bdce339b7c3e00.jpg"
         },
         {
           "size": "M",
           "color": "Negro",
           "price": 40.0,
-          "stock": 5
+          "stock": 5,
+          "img": "https://i.pinimg.com/236x/65/80/29/658029963003f81d75bdce339b7c3e00.jpg"
         },
         {
           "size": "L",
           "color": "Negro",
           "price": 40.0,
-          "stock": 0
+          "stock": 0,
+          "img": "https://i.pinimg.com/236x/65/80/29/658029963003f81d75bdce339b7c3e00.jpg"
         }
       ]
     }
