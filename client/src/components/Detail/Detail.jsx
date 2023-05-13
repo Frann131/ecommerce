@@ -1,5 +1,5 @@
 import { useState } from "react";
-import data from "./data.json";
+import data from "../data.json";
 import s from "./Detail.module.css";
 import { FaShoppingCart } from "react-icons/fa";
 
@@ -8,6 +8,7 @@ const Detail = () => {
 
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(undefined);
+  const [selectedColor, setSelectedColor] = useState(undefined);
 
   const availableSize = (product, size) => {
     const sizes = product.variants.filter((v) => {
@@ -19,13 +20,23 @@ const Detail = () => {
     } else disabled = true;
     return disabled;
   };
+
+  const handleSelectedSize = (size) => {
+    setSelectedSize(size);
+    setSelectedColor(undefined);
+  };
+
   const filteredBySize = product.variants.filter((variant) => {
-    console.log(selectedSize);
     if (selectedSize) {
       return variant.size === selectedSize;
     } else return variant;
   });
-  console.log("filtrado:", filteredBySize);
+
+  const filteredByColor = filteredBySize.filter((v) => {
+    if (selectedColor) {
+      return v.color.name === selectedColor;
+    } else return v;
+  });
 
   return (
     <div className={s.container}>
@@ -38,8 +49,12 @@ const Detail = () => {
           marginRight: "2rem",
           boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.5)",
         }}
-        src="https://deliverind.com.ar/wp-content/uploads/2022/10/BUZO-OVERSIZE-RUSTICO-22-PORTADA-10-scaled.jpg"
-        alt=""
+        src={
+          selectedSize && selectedColor
+            ? filteredByColor[0]?.img
+            : product.variants[0].img
+        }
+        alt={"Seleccione un talle y un color para ver la imagen"}
       />
       <div style={{ textAlign: "left" }}>
         <h2>{product.title}</h2>
@@ -47,49 +62,52 @@ const Detail = () => {
         <h4>{product.description}</h4>
         <div className={s.talles}>
           <button
-            onClick={() => setSelectedSize("S")}
+            onClick={() => handleSelectedSize("S")}
             disabled={availableSize(product, "S")}
           >
             S
           </button>
           <button
-            onClick={() => setSelectedSize("M")}
+            onClick={() => handleSelectedSize("M")}
             disabled={availableSize(product, "M")}
           >
             M
           </button>
           <button
-            onClick={() => setSelectedSize("L")}
+            onClick={() => handleSelectedSize("L")}
             disabled={availableSize(product, "L")}
           >
             L
           </button>
           <button
-            onClick={() => setSelectedSize("XL")}
+            onClick={() => handleSelectedSize("XL")}
             disabled={availableSize(product, "XL")}
           >
             XL
           </button>
           <button
-            onClick={() => setSelectedSize("XXL")}
+            onClick={() => handleSelectedSize("XXL")}
             disabled={availableSize(product, "XXL")}
           >
             XXL
           </button>
         </div>
-        <div className={s.colors}>
-          <p>Colores:</p>
-          {filteredBySize &&
-            filteredBySize.map((variant) => {
-              return (
-                <button
-                  style={{ backgroundColor: `${variant.color.color}` }}
-                  className={s.colorBtn}
-                ></button>
-              );
-            })}
-        </div>
-        <p style={{fontWeight:"500"}}>
+        {selectedSize ? (
+          <div className={s.colors}>
+            <p>Colores:</p>
+            {filteredBySize &&
+              filteredBySize.map((variant) => {
+                return (
+                  <button
+                    style={{ backgroundColor: `${variant.color.color}` }}
+                    className={s.colorBtn}
+                    onClick={() => setSelectedColor(variant.color.name)}
+                  ></button>
+                );
+              })}
+          </div>
+        ) : null}
+        <p style={{ fontWeight: "500" }}>
           Cantidad:{" "}
           <input
             type="number"

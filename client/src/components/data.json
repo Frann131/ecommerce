@@ -11,37 +11,43 @@
           "size": "S",
           "color": { "name": "Rojo", "color": "#aa0000" },
           "price": 3000,
-          "stock": 50
+          "stock": 50,
+          "img": "https://http2.mlstatic.com/D_NQ_NP_738598-MLA44941008966_022021-O.webp"
         },
         {
           "size": "M",
           "color": { "name": "Negro", "color": "#000000" },
           "price": 3000,
-          "stock": 40
+          "stock": 40,
+          "img": "https://sublimaq.com/701-large_default/buzo-frisa-comun-cuello-redondo-adulto-negro.jpg"
         },
         {
           "size": "L",
           "color": { "name": "Blanco", "color": "#ffffff" },
           "price": 3000,
-          "stock": 30
+          "stock": 30,
+          "img": "https://http2.mlstatic.com/D_NQ_NP_900933-MLA45795207902_052021-W.jpg"
         },
         {
           "size": "S",
           "color": { "name": "Negro", "color": "#000000" },
           "price": 3000,
-          "stock": 20
+          "stock": 20,
+          "img": "https://sublimaq.com/701-large_default/buzo-frisa-comun-cuello-redondo-adulto-negro.jpg"
         },
         {
           "size": "M",
           "color": { "name": "Blanco", "color": "#ffffff" },
           "price": 3000,
-          "stock": 10
+          "stock": 10,
+          "img": "https://http2.mlstatic.com/D_NQ_NP_900933-MLA45795207902_052021-W.jpg"
         },
         {
           "size": "L",
           "color": { "name": "Azul", "color": "#0000aa" },
           "price": 3000,
-          "stock": 5
+          "stock": 5,
+          "img": "https://enfans.com.ar/wp-content/uploads/2021/12/2246090141-BUZO-VANCOUVER-AZUL-MARINO_DORSO_02_webp.webp"
         }
       ]
     },
