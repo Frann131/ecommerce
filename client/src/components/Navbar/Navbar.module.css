@@ -7,6 +7,7 @@
   min-width: 100%;
   justify-content: space-around;
   place-items: center;
+  margin-bottom: 2rem;
 }
 .navbar p {
   margin: 0;

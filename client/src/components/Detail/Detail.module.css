@@ -1,7 +1,8 @@
 .container {
-  margin: 2rem;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  place-content: center;
+  max-width: 80%;
 }
 .addBtn {
   font-size: 11pt;

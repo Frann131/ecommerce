@@ -2,10 +2,14 @@ import { useState } from "react";
 import data from "../data.json";
 import s from "./Detail.module.css";
 import { FaShoppingCart } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import numeral from "numeral";
 
-const Detail = () => {
-  const product = data.prendas[0];
-
+const Detail = (props) => {
+  const { id } = useParams();
+  console.log(id);
+  const product = data.prendas.filter((p) => p.id === parseInt(id))[0];
+  console.log(product);
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(undefined);
   const [selectedColor, setSelectedColor] = useState(undefined);
@@ -38,6 +42,7 @@ const Detail = () => {
     } else return v;
   });
 
+  const formatPrice = numeral(filteredByColor[0].price).format("$0,0")
   return (
     <div className={s.container}>
       <img
@@ -58,7 +63,7 @@ const Detail = () => {
       />
       <div style={{ textAlign: "left" }}>
         <h2>{product.title}</h2>
-        <h3>${product.variants[0].price}</h3>
+        <h3>{formatPrice}</h3>
         <h4>{product.description}</h4>
         <div className={s.talles}>
           <button
@@ -87,7 +92,7 @@ const Detail = () => {
           </button>
           <button
             onClick={() => handleSelectedSize("XXL")}
-            disabled={availableSize(product, "XXL")}
+            disabled={availableSize(product, "XL")}
           >
             XXL
           </button>
